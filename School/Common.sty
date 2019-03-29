@@ -1,0 +1,50 @@
+% Version: 1.0
+
+\RequirePackage{amsmath, amssymb, amsthm}
+\RequirePackage{kotex}
+\RequirePackage{paralist}
+\RequirePackage{listings}
+\RequirePackage{enumerate}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+\RequirePackage{fontspec}
+
+% Patch \itemize and \enumerate to compact alternatives.
+\renewenvironment{itemize}{\begin{compactitem}}{\end{compactitem}}
+\renewenvironment{enumerate}{\begin{compactenum}}{\end{compactenum}}
+
+% Set the default style for \lstlisting.
+\lstset{
+    tabsize=4,
+    breaklines=true,
+    showstringspaces=false,
+    keywordstyle=\bfseries\color{blue},
+    commentstyle=\itshape\color{purple!40!black},
+    identifierstyle=\color{black},
+    stringstyle=\color{orange}
+}
+
+% Set the fonts.
+\setmainfont{Ubuntu-R}[
+    Path = \SchoolPath/../Font/,
+    BoldFont = Ubuntu-B,
+    ItalicFont = Ubuntu-RI,
+    BoldItalicFont = Ubuntu-BI
+]
+
+\setmonofont{UbuntuMono-R}[
+    Path = \SchoolPath/../Font/,
+    BoldFont = UbuntuMono-B,
+    ItalicFont = UbuntuMono-RI,
+    BoldItalicFont = UbuntuMono-BI
+]
+
+\setmainhangulfont{NanumBarunGothic}[
+    Path = \SchoolPath/../Font/
+]
+
+%\renewcommand{\familydefault}{cmss}
+%\usepackage[LGRgreek]{mathastext}
+%\renewcommand{\familydefault}{\rmdefault}
+%\Mathastext

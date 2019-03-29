@@ -1,0 +1,53 @@
+% Version: 1.0
+
+\RequirePackage{\SchoolPath/Common}
+\RequirePackage{datetime}
+\RequirePackage{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage{setspace}
+
+\newcommand{\HWSubject}{Subject}
+\newcommand{\HWType}{Homework}
+\newcommand{\HWNumber}{1}
+\newcommand{\HWAuthor}{Author}
+\newcommand{\HWDate}{Date}
+\newcommand{\HWProblemType}{Problem}
+\newcommand{\HWProblemNumber}{1}
+
+\newcommand{\HWSetSubject}[1]{\renewcommand{\HWSubject}{#1}}
+\newcommand{\HWSetType}[1]{\renewcommand{\HWType}{#1}}
+\newcommand{\HWSetNumber}[1]{\renewcommand{\HWNumber}{#1}}
+\newcommand{\HWSetAuthor}[1]{\renewcommand{\HWAuthor}{#1}}
+\newcommand{\HWSetDate}[3]{\renewcommand{\HWDate}{\monthname[#2] #3, #1}}
+\newcommand{\HWSetProblemType}[1]{\renewcommand{\HWProblemType}{#1}}
+
+% Set the section style.
+\titlelabel{\thetitle.\;}
+
+% Set the header and the footer.
+\fancypagestyle{plain}{
+    \fancyhead[L]{\HWSubject}
+    \fancyhead[R]{\HWType{} \HWNumber}
+    \fancyfoot[C]{- \thepage{} -}
+}
+
+% Adjust the line spacing to 1.5.
+\onehalfspacing
+
+% Define amsthm stuffs.
+\theoremstyle{definition}
+\newtheorem*{HWInnerProblem}{\HWProblemType{} \HWProblemNumber}
+
+\newenvironment{HWProblem}[1][1]{
+    \renewcommand{\HWProblemNumber}{#1}\begin{HWInnerProblem}
+}{
+    \end{HWInnerProblem}
+}
+
+\newenvironment{HWProof}{\begin{proof}[Proof]\leavevmode}{\end{proof}}
+\newenvironment{HWSolution}{\begin{proof}[Solution]\leavevmode}{\end{proof}}
+
+% For \maketitle.
+\title{\HWType{} \HWNumber}
+\author{\HWAuthor}
+\date{\today}

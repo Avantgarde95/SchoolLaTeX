@@ -1,0 +1,42 @@
+% Version: 1.0
+
+\RequirePackage{\SchoolPath/Common}
+\RequirePackage{datetime}
+
+\newcommand{\PTTitle}{Title}
+\newcommand{\PTSubtitle}{Subtitle}
+\newcommand{\PTAuthor}{Author}
+\newcommand{\PTInstitute}{}
+\newcommand{\PTDate}{Date}
+
+\newcommand{\PTSetTitle}[1]{\renewcommand{\PTTitle}{#1}}
+
+\newcommand{\PTSetSubtitle}[1]{
+    \renewcommand{\PTSubtitle}{#1}
+    \subtitle{\PTSubtitle}
+}
+
+\newcommand{\PTSetAuthor}[1]{\renewcommand{\PTAuthor}{#1}}
+\newcommand{\PTSetInstitute}[1]{\renewcommand{\PTInstitute}{#1}}
+\newcommand{\PTSetDate}[3]{\renewcommand{\PTDate}{\monthname[#2] #3, #1}}
+
+% Set fontspec.
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+
+% Set beamer.
+\usetheme{PaloAlto}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{\insertframenumber\;/\;\inserttotalframenumber}
+\setbeamercolor{navigation symbols}{fg=black}
+
+% Set the link color.
+\definecolor{links}{HTML}{0000FF}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+% For \maketitle.
+\title{\PTTitle}
+%\subtitle{\PTSubtitle}
+\author{\PTAuthor}
+\institute{\PTInstitute}
+\date{\PTDate}
